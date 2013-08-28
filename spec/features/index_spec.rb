@@ -1,4 +1,4 @@
-require '../spec_helper.rb'
+require 'spec_helper'
 
 feature 'User browsing the website' do
   context "on index page" do
