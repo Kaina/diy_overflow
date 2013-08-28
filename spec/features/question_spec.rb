@@ -11,8 +11,6 @@ describe 'Question panel' do
         click_button 'Create Question'
       }.to change(Question, :count).by 1
 
-      save_and_open_page
-
       page.should have_content "How do I eat bacon?"
     end
   end
