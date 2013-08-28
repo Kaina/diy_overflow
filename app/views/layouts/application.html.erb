@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
-  <%= link_to "Sign in", signin_path %>
+<div class="navbar">
+	<%= link_to image_tag("sign_in_with_twitter.png", :border=>0, :class => 'twitter-button') %>
 </div>
 
 <%= yield %>
