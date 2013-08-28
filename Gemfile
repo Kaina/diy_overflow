@@ -34,6 +34,7 @@ group :test do
   gem 'better_errors'
   gem 'faker'
   gem 'binding_of_caller'
+  gem 'shoulda-matchers'
 end
 
 # To use ActiveModel has_secure_password
