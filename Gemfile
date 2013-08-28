@@ -27,12 +27,15 @@ group :development, :test do
     gem 'rspec-rails'
 end
 
+group :development do
+    gem 'better_errors'
+end
+
 group :test do
   gem 'factory_girl'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'launchy'
-  gem 'better_errors'
   gem 'faker'
   gem 'binding_of_caller'
   gem 'shoulda-matchers'
