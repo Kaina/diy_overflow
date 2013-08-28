@@ -6,7 +6,7 @@ describe 'Question panel' do
       visit new_question_url
 
       expect {
-        fill_in 'question_title', with: "How do I eat bacon?"
+        fill_in 'question_title',   with: "How do I eat bacon?"
         fill_in 'question_content', with: "i'm really struggling with bacon"
         click_button 'submit'
       }.to change(Question, :count).by 1

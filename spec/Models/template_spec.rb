@@ -5,7 +5,6 @@ describe Template do
                                 content: "I can't bacon.",
                                 author: "A Pig") }
 
-  it "shouldn't initialize with less than three variables" do
-    expect( Template.new ).to raise_error(ArgumentError)
-  end
+  it { should validate_presence_of(:content) }
+  it { should validate_presence_of(:author) }
 end
