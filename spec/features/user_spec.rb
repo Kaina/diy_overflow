@@ -1,4 +1,4 @@
-require '../spec_helper.rb'
+require 'spec_helper'
 
 describe "User sign up or sign in" do
   context "when on the sign up page" do
