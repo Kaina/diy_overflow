@@ -1,5 +1,4 @@
 DiyOverflow::Application.routes.draw do
-
   get '/signin', :to => 'sessions#new', as: 'signin'
   root :to => 'home#index'
 
