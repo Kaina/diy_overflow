@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-  	redirect_to()
+  	render "sign_in"
   end
 
 end
