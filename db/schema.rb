@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(:version => 20130828192536) do
   create_table "templates", :force => true do |t|
     t.string   "title"
     t.text     "content",    :null => false
-    t.integer  "user_id",    :null => false
     t.integer  "parent_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
