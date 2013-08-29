@@ -1,5 +1,6 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
+OmniAuth.config.test_mode = true
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
@@ -31,3 +32,4 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 end
+
