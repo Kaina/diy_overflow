@@ -7,8 +7,6 @@ describe 'Answer Panel' do
 
       visit question_url(question)
 
-      click_link "Answer Question"
-
       expect {
         fill_in 'answer_content', with: "You put it in your mouth, man.  It's pretty simple."
         click_button 'Save'
