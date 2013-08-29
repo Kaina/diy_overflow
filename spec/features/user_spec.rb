@@ -22,3 +22,10 @@ describe "User can auth" do
     end
   end
 end
+
+describe "User can view content" do
+  context "a user can view content" do
+    it "should display content when user is logged out"
+    it "should display content when user is logged in"
+  end
+end
