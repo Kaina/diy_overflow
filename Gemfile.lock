@@ -169,6 +169,7 @@ DEPENDENCIES
   faker
   jquery-rails
   launchy
+  omniauth
   omniauth-twitter
   pg
   rails (= 3.2.13)
