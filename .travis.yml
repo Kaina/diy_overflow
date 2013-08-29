@@ -3,9 +3,12 @@ before_install:
 - gem install bundler
 rvm:
 - 1.9.3
-before script:
+before_script:
   - psql -c 'create database diy_test;' -U postgres
-script: bundle exec rake
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 env:
   global:
   - secure: DLvxy4MNDJJLdduXY+3DmCU4wcQ5b2BAoS69g/ztyIKN9fOgDL3dUx2JK8KFXkUM35Mu1O7hzOJBVdLZZdmZyDKlvt9Dm0hEgTuS1KGLx7BHKQ6x4iziQqLQPONMnYQbZIlljOky/AWEpuANtKimtGDcFWyNoboyYO7nuV21beU=
