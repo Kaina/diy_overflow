@@ -8,7 +8,7 @@ describe 'Question panel' do
       expect {
         fill_in 'question_title',   with: "How do I eat bacon?"
         fill_in 'question_content', with: "i'm really struggling with bacon"
-        click_button 'Create Question'
+        click_button 'Save'
       }.to change(Question, :count).by 1
 
       page.should have_content "How do I eat bacon?"
@@ -22,7 +22,7 @@ describe 'Question panel' do
       visit edit_question_url(question)
 
       fill_in 'question_title', with: "Bacon."
-      click_button 'Edit Question'
+      click_button 'Save'
 
       page.should have_content "Bacon."
     end
