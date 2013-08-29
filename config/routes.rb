@@ -3,7 +3,12 @@ DiyOverflow::Application.routes.draw do
   get '/signin', :to => 'sessions#new', as: 'signin'
   root :to => 'home#index'
 
+  # Questions
   resources :questions
+
+  # Answers
+  resources :answers 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
