@@ -6,7 +6,7 @@ describe 'Answer Panel' do
       question = Question.create(title: "How do I eat bacon?", content: "I'm really struggling with bacon" )
 
       visit question_url(question)
-
+      save_and_open_page
       expect {
         fill_in 'answer_content', with: "You put it in your mouth, man.  It's pretty simple."
         click_button 'Save'
