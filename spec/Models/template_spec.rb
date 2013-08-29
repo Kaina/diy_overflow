@@ -8,4 +8,8 @@ describe Template do
   it { should have_many(:children) }
 
   it { should validate_presence_of(:content) }
+
+  it 'has no votes when created' do 
+  	template.votes.should eq 0 
+  end 
 end

@@ -3,6 +3,7 @@
 <br>
 <p><%= @question.content %></p>
 <br>
+    <%= link_to "Upvote", { controller: "questions", action: "upvote",  id: @question.id }, method: :post %>
 <br>
 <%= render partial: "answers/form" %>
 <br>

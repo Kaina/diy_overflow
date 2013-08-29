@@ -27,4 +27,14 @@ describe 'Question panel' do
       page.should have_content "Bacon."
     end
   end
+
+  context 'Upvote' do 
+    it "can increase number of votes" do 
+      question = Question.create(title: "Bacon?", content: "I can't bacon." )
+      visit question_url(question.id)
+      click_link 'Upvote'
+      question = Question.last 
+      question.votes.should eq 1
+    end 
+  end 
 end

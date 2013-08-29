@@ -5,6 +5,8 @@ DiyOverflow::Application.routes.draw do
   get "/auth/twitter/callback", :to => "sessions#create"
   post "/signout", :to => "sessions#destroy", as: 'signout'
 
+  post '/upvote',  :to =>  'questions#upvote',  as:  'upvote'
+
   resources :questions
   resources :answers
   # The priority is based upon order of creation:

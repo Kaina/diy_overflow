@@ -22,4 +22,10 @@ class QuestionsController < ApplicationController
     question.update_attributes(params[:question])
     redirect_to question_url(question)
   end
+
+  def upvote 
+    question = Question.find(params[:id])
+    question.update_attribute(:votes,(question.votes + 1))
+    redirect_to question_url(question)
+  end
 end
