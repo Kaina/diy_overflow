@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130829021110) do
+ActiveRecord::Schema.define(:version => 20130829190725) do
 
   create_table "templates", :force => true do |t|
     t.string   "title"
-    t.text     "content",    :null => false
+    t.text     "content",                   :null => false
     t.integer  "parent_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "votes",      :default => 0
   end
 
   create_table "users", :force => true do |t|

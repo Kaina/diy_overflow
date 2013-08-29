@@ -4,5 +4,5 @@ class Template < ActiveRecord::Base
 
   validates_presence_of :content
 
-  attr_accessible :title, :content, :parent_id
+  attr_accessible :title, :content, :parent_id, :votes
 end
