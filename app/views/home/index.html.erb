@@ -2,6 +2,10 @@
 <h1>Welcome back <%= current_user.nickname %></h1>
 <% end %>
 
+<% if flash %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <h2>Top Questions</h2>
 <% @questions.each do |question| %>
   <div id="question"><%= link_to question.title, question_path(question) %></div>

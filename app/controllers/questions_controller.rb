@@ -1,6 +1,11 @@
 class QuestionsController < ApplicationController
   def new
-    @question = Question.new
+    if current_user
+      @question = Question.new
+    else
+      flash[:notice] = "Please Log In To Create A Question"
+      redirect_to root_url
+    end
   end
 
   def create
@@ -14,7 +19,12 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
+    if current_user
+      @question = Question.find(params[:id])
+    else
+      flash[:notice] = "Please Log In To Edit Question"
+      redirect_to root_url
+    end
   end
 
   def update
