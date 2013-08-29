@@ -17,14 +17,18 @@ ActiveRecord::Schema.define(:version => 20130829021110) do
     t.string   "title"
     t.text     "content",    :null => false
     t.integer  "parent_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
     t.string   "uid"
-    t.string   "name"
+    t.string   "nickname"
     t.string   "provider"
+    t.string   "image"
+    t.string   "token"
+    t.string   "secret"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
