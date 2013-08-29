@@ -25,7 +25,16 @@ end
 
 describe "User can view content" do
   context "a user can view content" do
-    it "should display content when user is logged out"
-    it "should display content when user is logged in"
+    let!(:question) {FactoryGirl.create(:question)}
+    it "should display content when user is logged out" do
+      visit root_path
+      page.should have_selector('.twitter-button')
+      page.should have_selector('#question')
+    end
+    it "should display content when user is logged in" do
+      visit '/auth/twitter'
+      page.should have_selector('a', text: 'Logout')
+      page.should have_selector('#question')
+    end
   end
 end
