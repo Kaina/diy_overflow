@@ -6,7 +6,11 @@ class Question < Template
   attr_writer :tag_names
   attr_accessible :tag_names
 
-  after_save :set_tags
+  after_save :set_type, :set_tags
+
+  def set_type
+    self.type = "question"
+  end
 
   def tag_names
   	@tag_names || tags.map(&:name).join(' ')
