@@ -14,5 +14,8 @@
 /log/*.log
 /tmp
 
-#Ignore twitter config file.
+# Ignore twitter config file.
 /config/twitter.yml
+
+# Ignore simplecov generated file
+*coverage/
