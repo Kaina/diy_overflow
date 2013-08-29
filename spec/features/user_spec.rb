@@ -6,7 +6,6 @@ describe "User can auth" do
       OmniAuth.config.add_mock :twitter, uid: "twitter-12345", info: { name: "Nedliest Catch" }
       visit '/auth/twitter'
       page.should have_content "Welcome back Nedliest Catch"
-
     end
     it "should display a logout link" do
       visit '/auth/twitter'

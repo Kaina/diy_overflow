@@ -3,7 +3,7 @@ DiyOverflow::Application.routes.draw do
   root :to => 'home#index'
 
   get "/auth/twitter/callback", :to => "sessions#create"
-  get "/signout", :to => "sessions#destroy", as: 'signout'
+  post "/signout", :to => "sessions#destroy", as: 'signout'
 
   resources :questions
   # The priority is based upon order of creation:
