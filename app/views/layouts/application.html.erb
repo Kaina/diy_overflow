@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="header">
-  <%= link_to "Sign in", signin_path %>
+<div class="navbar">
+	<% if !current_user %>
+	  <%= link_to image_tag("sign_in_with_twitter.png", :class => 'twitter-button'), "/auth/twitter" =%>
+	<% else %>
+	  <%= link_to "Logout", signout_path, method: :post %>
+	<% end %>
 </div>
 
 <%= yield %>

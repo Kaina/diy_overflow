@@ -1,0 +1,11 @@
+development:
+  key: consumer_key
+  secret: secret_key
+
+test:
+   key: consumer_key
+   secret: secret_key
+
+production:
+   key: consumer_key
+   secret: secret_key
