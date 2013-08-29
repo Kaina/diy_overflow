@@ -3,7 +3,14 @@ DiyOverflow::Application.routes.draw do
   get '/signin', :to => 'sessions#new', as: 'signin'
   root :to => 'home#index'
 
-  resources :questions
+  #resources :questions
+  get '/questions', to: 'questions#index', as: 'questions'
+  post '/questions', to: 'questions#create', as: 'questions'
+  get '/questions/new', to: 'questions#new', as: 'new_question'
+  get '/questions/:id/edit', to: 'questions#edit', as: 'edit_question'
+  get '/questions/:id', to: 'questions#show', as: 'question'
+  put '/questions/:id', to: 'questions#update', as: 'question'
+  delete '/questions/:id', to: 'questions#destroy', as: 'question'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
