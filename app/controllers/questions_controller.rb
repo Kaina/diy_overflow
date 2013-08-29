@@ -12,11 +12,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def edit # get route
+  def edit
     @question = Question.find(params[:id])
   end
 
-  def update #Post
+  def update
     question = Question.find(params[:id])
     question.update_attributes(params[:question])
     redirect_to question_url(question)
