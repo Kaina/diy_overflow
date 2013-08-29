@@ -1,0 +1,4 @@
+<% if current_user %>
+<h1>Welcome back <%= current_user.name %></h1>
+<%= link_to "Logout", signout_path %>
+<% end %>
