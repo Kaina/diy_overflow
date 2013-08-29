@@ -14,4 +14,17 @@ describe 'Question panel' do
       page.should have_content "How do I eat bacon?"
     end
   end
+
+  context 'Edit Question' do
+    it 'can edit an existing question and view the successful changes' do
+      question = Question.create(title: "Bacon?", content: "I can't bacon." )
+
+      visit edit_question_url(question)
+
+      fill_in 'question_title', with: "Bacon."
+      click_button 'Edit Question'
+
+      page.should have_content "Bacon."
+    end
+  end
 end
