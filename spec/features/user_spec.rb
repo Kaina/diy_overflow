@@ -1,14 +1,15 @@
 require 'spec_helper'
 
-describe "User sign up or sign in" do
-  context "when on index page and not in session" do
-    it "user can sign in with twitter" do
+describe "User can auth" do
+  context "when user signs in with twitter" do
+    it "signs the user in and welcomes them" do
       OmniAuth.config.add_mock :twitter, uid: "twitter-12345", info: { name: "Nedliest Catch" }
-      visit root_path
-      click_button ".twitter-button"
+      visit '/auth/twitter'
       page.should have_content "Welcome back Nedliest Catch"
+
     end
-    it "should have a signout link" do
+    it "should display a logout link" do
+      visit '/auth/twitter'
       page.should have_selector('a', text: 'Logout')
     end
   end
