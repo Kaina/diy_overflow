@@ -7,4 +7,6 @@ describe Question do
   it "should not have a parent" do
     expect(question.parent).to be_nil
   end
+
+  it { should have_many(:answers) }
 end

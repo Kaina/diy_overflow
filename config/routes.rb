@@ -6,6 +6,7 @@ DiyOverflow::Application.routes.draw do
   post "/signout", :to => "sessions#destroy", as: 'signout'
 
   resources :questions
+  resources :answers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
