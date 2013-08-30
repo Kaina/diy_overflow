@@ -30,7 +30,7 @@ describe 'Answer Panel' do
     end
   end
 
-  context 'cannot create/edit answers if logged in' do
+  context 'cannot create/edit answers if not logged in' do
     it 'cannot create an answer unless logged in' do
       question = Question.create(title: "How do I eat bacon?",
                                  content: "I'm really struggling with bacon" )
