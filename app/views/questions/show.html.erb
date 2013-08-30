@@ -13,6 +13,9 @@
 <br>
 <h3>Answer</h3>
 <br>
+<% if flash %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <%= render partial: "answers/form" %>
 <br>
 <br>

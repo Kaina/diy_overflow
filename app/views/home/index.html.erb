@@ -6,6 +6,10 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 
+<% if current_user %>
+  <%= link_to "New Question", new_question_url %>
+<% end %>
+
 <h2>Top Questions</h2>
 <% @questions.each do |question| %>
   <div id="question"><%= link_to question.title, question_path(question) %></div>
