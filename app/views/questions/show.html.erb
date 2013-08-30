@@ -3,6 +3,10 @@
 <br>
 <p><%= @question.content %></p>
 <br>
+<% @question.tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+<br>
 <br>
 <%= render partial: "answers/form" %>
 <br>
