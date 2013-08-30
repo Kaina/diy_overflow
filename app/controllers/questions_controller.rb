@@ -9,7 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(params[:question])
+    question = current_user.questions.create(params[:question])
     redirect_to question_url(question)
   end
 
@@ -19,8 +19,9 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    if current_user
-      @question = Question.find(params[:id])
+    question = Question.find(params[:id])
+    if current_user == question.user
+      @question = question
     else
       flash[:notice] = "Please Log In To Edit Question"
       redirect_to root_url
