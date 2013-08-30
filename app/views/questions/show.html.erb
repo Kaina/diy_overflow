@@ -4,7 +4,7 @@
 <% end %>
 <br>
 <br>
-<p><%= @question.content %></p>
+<p><%= @question.content %> <%= button_to "Shocka ^", question_path(@question) %></p>
 <br>
 <% @question.tags.each do |tag| %>
   <%= tag.name %>
@@ -23,7 +23,7 @@
 <br>
 <br>
 <% @question.answers.each do |answer| %>
-  <p><%= answer.content %></p>
+  <p><%= answer.content %> <%= button_to "Shocka ^", question_path(@question) %></p>
   <br>
   <% answer.comments.each do |comment| %>
   	<p> <%= comment.content %></p>
