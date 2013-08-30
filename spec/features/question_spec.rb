@@ -18,11 +18,17 @@ describe 'Question panel, User Logged In' do
 
       expect {
         fill_in 'question_title',   with: "How do I eat bacon?"
-        fill_in 'question_content', with: "i'm really struggling with bacon"
+        fill_in 'question_content', with: "I'm really struggling with bacon"
+        fill_in 'question_tag_names', with: "pigs bacon"
         click_button 'Save'
       }.to change(Question, :count).by 1
 
+      Question.last.tags.count.should eq 2
+
       page.should have_content "How do I eat bacon?"
+      page.should have_content "I'm really struggling with bacon"
+      page.should have_content "pigs"
+      page.should have_content "bacon"
     end
   end
 
@@ -40,16 +46,26 @@ describe 'Question panel, User Logged In' do
 
       current_user = User.find_by_uid("twitter-12345")
 
-      question = current_user.questions.create( title: "Bacon?", content: "I can't bacon." )
+      question = current_user.questions.create( title: "Bacon?",
+                                                content: "I can't bacon.",
+                                                tag_names: "pigs bacon" )
 
       visit question_url(question)
 
       click_link 'Edit'
 
-      fill_in 'question_title', with: "Bacon."
-      click_button 'Save'
+      page.should have_css("input[value]#question_tag_names", "pigs bacon")
+
+      expect {
+        fill_in 'question_title', with: "Bacon."
+        fill_in 'question_tag_names', with: "food"
+        click_button 'Save'
+      }.to change(Tag, :count).by 1
 
       page.should have_content "Bacon."
+      page.should have_content "food"
+      page.should_not have_content "Bacon?"
+      page.should_not have_content "pigs"
     end
   end
 end
