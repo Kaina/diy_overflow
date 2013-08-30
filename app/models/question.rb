@@ -1,5 +1,6 @@
 class Question < Template
   has_many :answers, foreign_key: :parent_id
+  has_many :comments, foreign_key: :parent_id
   has_many :question_tags
   has_many :tags, through: :question_tags
 
