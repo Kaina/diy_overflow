@@ -34,4 +34,7 @@ DiyOverflow::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  # This is required for paperclip image upload to have access to image processing
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

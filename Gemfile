@@ -9,6 +9,7 @@ gem 'pg'
 
 gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Gems used only for assets and not required
 # in production environments by default.

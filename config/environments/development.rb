@@ -34,4 +34,7 @@ DiyOverflow::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # This is required for paperclip image upload to have access to image processing
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
