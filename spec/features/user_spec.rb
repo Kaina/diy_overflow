@@ -38,3 +38,14 @@ describe "User can view content" do
     end
   end
 end
+
+describe "User can click on a question" do
+  context "a user clicks on a question" do
+    let!(:question) {FactoryGirl.create(:question)}
+    it "should display the question content" do
+      visit root_path
+      click_link "How do I build this awesome couch?"
+      page.should have_content("Like this:")
+    end
+  end
+end
