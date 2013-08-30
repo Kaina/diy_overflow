@@ -1,3 +1,4 @@
+
 class AnswersController < ApplicationController
 	def create
     question = Question.find(params[:answer][:question_id])
