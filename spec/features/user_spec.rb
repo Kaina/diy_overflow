@@ -31,6 +31,7 @@ describe "User can view content" do
       page.should have_selector('.twitter-button')
       page.should have_selector('#question')
     end
+
     it "should display content when user is logged in" do
       visit '/auth/twitter'
       page.should have_selector('a', text: 'Logout')
@@ -46,6 +47,21 @@ describe "User can click on a question" do
       visit root_path
       click_link "How do I build this awesome couch?"
       page.should have_content("Like this:")
+    end
+  end
+end
+
+describe "User can upload an image to a question" do
+  context "a user clicks to submit an image" do
+    it "should display the image on page" do
+      visit new_question_url
+
+      fill_in 'question_title',   with: "how do i eat bacon?"
+      fill_in 'question_content', with: "i'm really struggling with bacon"
+      attach_file('my_test_image', '/assets/my_test_image.png')
+      click_button 'save'
+
+      page.should have_content("#question_image")
     end
   end
 end
