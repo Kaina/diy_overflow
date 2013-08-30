@@ -3,7 +3,7 @@ class Question < Template
   has_many :question_tags
   has_many :tags, through: :question_tags
 
-  attr_accessor :tag_names
+  attr_writer :tag_names
   attr_accessible :tag_names
   
   after_save :set_tags
@@ -11,6 +11,8 @@ class Question < Template
   def tag_names
   	@tag_names || tags.map(&:name).join(' ')
   end
+
+  private
 
   def set_tags
   	if @tag_names
