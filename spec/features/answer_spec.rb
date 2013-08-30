@@ -3,12 +3,7 @@ require 'spec_helper'
 describe 'Answer Panel' do
   context 'can create/edit answers if logged in' do
     it 'can create an answer associated with a particular question and view it' do
-      OmniAuth.config.add_mock :twitter,
-                               uid: "twitter-12345",
-                               info: { nickname: "Nedliest Catch",
-                                       image: "imageofned.html" },
-                               credentials: { token: "1234549039jrf0a",
-                                              secret: "aoiefnaewofianefo" }
+      add_user_mock
 
       visit root_url
 

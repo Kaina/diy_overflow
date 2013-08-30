@@ -24,6 +24,15 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 OmniAuth.config.test_mode = true
 
+def add_user_mock
+  OmniAuth.config.add_mock :twitter,
+                           uid: "twitter-12345",
+                           info: { nickname: "Nedliest Catch",
+                                   image: "imageofned.html" },
+                           credentials: { token: "1234549039jrf0a",
+                                          secret: "aoiefnaewofianefo" }
+end
+
 RSpec.configure do |config|
   config.include Capybara::DSL
 

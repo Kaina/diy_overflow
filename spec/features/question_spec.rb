@@ -3,12 +3,7 @@ require 'spec_helper'
 describe 'Question panel, User Logged In' do
   context 'Create Question' do
     it 'can create a new question and view it' do
-      OmniAuth.config.add_mock :twitter,
-                               uid: "twitter-12345",
-                               info: { nickname: "Nedliest Catch",
-                                       image: "imageofned.html" },
-                               credentials: { token: "1234549039jrf0a",
-                                              secret: "aoiefnaewofianefo" }
+      add_user_mock
 
       visit root_url
 
@@ -34,12 +29,8 @@ describe 'Question panel, User Logged In' do
 
   context 'Edit Question' do
     it 'can edit an existing question and view the successful changes' do
-      OmniAuth.config.add_mock :twitter,
-                               uid: "twitter-12345",
-                               info: { nickname: "Nedliest Catch",
-                                       image: "imageofned.html" },
-                               credentials: { token: "1234549039jrf0a",
-                                              secret: "aoiefnaewofianefo" }
+      add_user_mock
+
       visit root_url
 
       click_link 'sign_in'
@@ -80,10 +71,8 @@ describe 'Question panel, User Anonymous' do
   end
 
   it 'cannot edit a question unless logged in' do
-    user = User.new
-    user.nickname = "Jim"
-    user.provider = "twitter"
-    user.save
+    user = FactoryGirl.create(:user)
+
     question = Question.create(title: "Bacon?", content: "I can't bacon.", user: user)
 
     visit edit_question_url(question)
@@ -92,18 +81,12 @@ describe 'Question panel, User Anonymous' do
   end
 
   it 'cannot edit a post unless it created the post' do
-    user = User.new
-    user.nickname = "Jim"
-    user.provider = "twitter"
-    user.save
+    user = FactoryGirl.create(:user)
+
     question = Question.create(title: "Bacon?", content: "I can't bacon.", user: user)
 
-    OmniAuth.config.add_mock :twitter,
-                               uid: "twitter-12345",
-                               info: { nickname: "Nedliest Catch",
-                                       image: "imageofned.html" },
-                               credentials: { token: "1234549039jrf0a",
-                                              secret: "aoiefnaewofianefo" }
+    add_user_mock
+
     visit root_url
 
     click_link 'sign_in'
