@@ -5,7 +5,7 @@ class Question < Template
 
   attr_writer :tag_names
   attr_accessible :tag_names
-  
+
   after_save :set_tags
 
   def tag_names

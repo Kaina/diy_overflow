@@ -1,4 +1,7 @@
 <h2><%= @question.title  %></h2>
+<% if current_user == @question.user %>
+  <%= link_to "Edit", edit_question_url %>
+<% end %>
 <br>
 <br>
 <p><%= @question.content %></p>
@@ -8,6 +11,11 @@
 <% end %>
 <br>
 <br>
+<h3>Answer</h3>
+<br>
+<% if flash %>
+  <p><%= flash[:notice] %></p>
+<% end %>
 <%= render partial: "answers/form" %>
 <br>
 <br>

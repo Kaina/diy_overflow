@@ -5,6 +5,7 @@ describe Template do
                                 content: "I can't bacon." ) }
 
   it { should belong_to(:parent) }
+  it { should belong_to(:user) }
   it { should have_many(:children) }
 
   it { should validate_presence_of(:content) }
