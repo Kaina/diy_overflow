@@ -13,6 +13,11 @@
 	<% else %>
 	  <%= link_to "Logout", signout_path, method: :post %>
 	<% end %>
+    <%= form_tag("/search", method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+    <% end %>
 </div>
 
 <%= yield %>
