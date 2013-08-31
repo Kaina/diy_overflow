@@ -1,0 +1,10 @@
+
+<% @comment ||= locals[:comment] %><%= form_for @comment do |f| %>
+  <%= f.hidden_field :type, value:  %>
+  Content:
+  <br>
+  <%= f.text_area :content %>
+  <br>
+  <br>
+  <%= f.submit "Save" %>
+<% end %>

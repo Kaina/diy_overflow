@@ -20,6 +20,7 @@
   <p><%= flash[:notice] %></p>
 <% end %>
 <%= render partial: "answers/form" %>
+<%= render partial: "comments/form", locals: {comment: @question.comments.new }, layout: false %>
 <br>
 <br>
 <% @question.answers.each do |answer| %>
@@ -29,5 +30,6 @@
   	<p> <%= comment.content %></p>
   	<br>
   <% end %>
+  	<%= render partial: "comments/form", locals: {comment: @answer.comments.new }, layout: false%>
   <br>
 <% end %>
